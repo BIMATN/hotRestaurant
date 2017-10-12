@@ -1,0 +1,26 @@
+{
+  "name": "nodehotrestaurant",
+  "version": "1.0.0",
+  "description": "This package supports the restaurant application",
+  "main": "hotRestaurant.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BIMATN/hotRestaurant.git"
+  },
+  "keywords": [
+    "hot",
+    "restaurant"
+  ],
+  "author": "TCSB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BIMATN/hotRestaurant/issues"
+  },
+  "homepage": "https://github.com/BIMATN/hotRestaurant#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
