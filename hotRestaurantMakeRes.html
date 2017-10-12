@@ -10,14 +10,54 @@
 </head>
 <body>
 	<div class="container">
-	  <div class="jumbotron">
-	    <h1 class='text-center'><span class="glyphicon glyphicon-fire"></span> HOT RESTAURANT</h1>
-	    <div class='text-center'>
-	    <p id="statusText">Make a reservation</p>
-	    <button id="viewTab" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-th-list"></span> View Tables</button>
-	    <button id="tRes" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservations</button>
+		<div class="jumbotron">
+		<h1 class='text-center'><span class="glyphicon glyphicon-fire"></span> HOT RESTAURANT</h1>
+		<div class='text-center'>
+		    <p id="statusText">Make a Reservation</p>
+		    <button id="home" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-home"></span></button>
+		    <button id="tRes" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-th-list"></span> View Tables</button>
 		</div>
-	  </div>      
-	</div>
+		</div>
+		<div class="container">
+			<div class= "panel panel-default">
+			  	<div class="panel-heading"><h4>Table Reservations</h4>
+			  	</div>
+					<div class="form-group">
+					    <label for="name">Name</label>
+					    <input type="text" class="form-control" id="name" placeholder="Enter Name">
+					</div>
+					<div class="form-group">
+					    <label for="name">Phone Number</label>
+					    <input type="text" class="form-control" id="number" placeholder="Phone Number">
+					</div>
+					<div class="form-group">
+					    <label for="name">Email</label>
+					    <input type="text" class="form-control" id="email" placeholder="Email">
+					</div>
+					<div class="form-group">
+					    <label for="name">Unique ID</label>
+					    <input type="text" class="form-control" id="unique" placeholder="ID">
+					</div>
+					<button type="button" id="submitRes" class="btn btn-primary btn-sm">Submit</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			$("#submitRes").on("click", function(event) {
+			  event.preventDefault();
+			  var newReservation = {
+			    name: $("#name").val().trim(),
+			    phoneNumber: $("#number").val().trim(),
+			    email: $("#email").val().trim(),
+			    uniqueID: $("#unique").val().trim()
+			  };
+			  // Question: What does this code do??
+			  $.post("/newRes", newReservation)
+			  .done(function(data) {
+			    console.log(data);
+			    alert("Adding Reservation...");
+			  });
+			});
+		</script>
 </body>
 </html>

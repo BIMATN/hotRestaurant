@@ -13,11 +13,42 @@
 	  <div class="jumbotron">
 	    <h1 class='text-center'><span class="glyphicon glyphicon-fire"></span> HOT RESTAURANT</h1>
 	    <div class='text-center'>
-	    <p id="statusText">Current Reservations and Waiting List</p>
-	    <button id="home" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-home"></span></button>
-	    <button id="tRes" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservations</button>
+		    <p id="statusText">Current Reservations and Waiting List</p>
+		    <button id="home" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-home"></span></button>
+		    <button id="tRes" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservations</button>
 		</div>
-	  </div>      
+	  </div>
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Current Reservations</h3>
+	    </div>
+	    <div class="panel-body" id='currentRes'>
+	    </div>
+	  </div> 
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Waiting List</h3>
+	    </div>
+	    <div class="panel-body" id='Waiting'>
+	    </div>
+	  </div>     
 	</div>
+	<script>
+		$("#").on("click", function(event) {
+		  event.preventDefault();
+		  var newCharacter = {
+		    name: $("#name").val().trim(),
+		    role: $("#role").val().trim(),
+		    age: $("#age").val().trim(),
+		    forcePoints: $("#force-points").val().trim()
+		  };
+		  // Question: What does this code do??
+		  $.post("/api/new", newCharacter)
+		  .done(function(data) {
+		    console.log(data);
+		    alert("Adding character...");
+		  });
+		});
+	</script>
 </body>
 </html>
